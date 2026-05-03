@@ -7,6 +7,7 @@ class Atleta {
         this.notas = notas;
     }
 
+
     calculaCategoria() {
         if (this.idade >= 9 && this.idade <= 11) return "Infantil";
         if (this.idade === 12 || this.idade === 13) return "Juvenil";
@@ -20,6 +21,7 @@ class Atleta {
         return this.peso / (this.altura * this.altura);
     }
 
+
     calculaMediaValida() {
         const notasOrdenadas = [...this.notas].sort((a, b) => a - b);
         const notasValidas = notasOrdenadas.slice(1, 4);
@@ -32,7 +34,7 @@ class Atleta {
         return soma / notasValidas.length;
     }
 
- 
+  
     obtemNomeAtleta() {
         return this.nome;
     }
@@ -63,12 +65,7 @@ class Atleta {
 
     obtemMediaValida() {
         const media = this.calculaMediaValida();
-
-        
-        return media
-            .toFixed(8)
-            .replace(/\.?0+$/, '')
-            .replace('.', ',');
+        return media.toFixed(8).replace('.', ',');
     }
 }
 
@@ -81,6 +78,7 @@ const atleta = new Atleta(
     1.70,
     [10, 9.34, 8.42, 10, 7.88]
 );
+
 
 
 console.log(`Nome: ${atleta.obtemNomeAtleta()}`);
